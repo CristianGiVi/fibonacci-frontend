@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+import { generateFibonnaci } from "../hooks/generateFibonnaci";
 
 const getCurrentTime = () => {
   const now = new Date();
@@ -7,22 +9,6 @@ const getCurrentTime = () => {
   const seconds = now.getSeconds();
   return { hours, minutes, seconds };
 };
-
-function generateFibonnaci(currentTime) {
-  const { hours, seconds, minutes } = currentTime;
-
-  const fibonacciList = [];
-
-  fibonacciList.push(seconds);
-  fibonacciList.push(minutes);
-
-  for (let i = 0; i < hours - 2; i++) {
-    let nextNumber = fibonacciList[i] + fibonacciList[i + 1];
-    fibonacciList.push(nextNumber);
-  }
-
-  console.log(fibonacciList);
-}
 
 export const FibonacciCurrentHour = () => {
   const [currentTime, setCurrentTime] = useState(getCurrentTime());
