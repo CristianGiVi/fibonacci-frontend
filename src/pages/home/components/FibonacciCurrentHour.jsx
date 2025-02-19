@@ -10,27 +10,24 @@ const getCurrentTime = () => {
   return { hours, minutes, seconds };
 };
 
+const convertCurrentTimeIntoString = (currentTime) => {
+  const hours = currentTime.hours.toString().padStart(2, "0");
+  const minutes = currentTime.minutes.toString().padStart(2, "0");
+  const seconds = currentTime.seconds.toString().padStart(2, "0");
+  return `${hours}:${minutes}:${seconds}`
+}
+
 export const FibonacciCurrentHour = () => {
   const [currentTime, setCurrentTime] = useState(getCurrentTime());
-  const [currentTimeString, setCurrentTimeString] = useState("");
+  const [currentTimeString, setCurrentTimeString] = useState(convertCurrentTimeIntoString(getCurrentTime()));
 
   useEffect(() => {
     const timer = setInterval(() => {
       const newTime = getCurrentTime();
-
-      const hours = newTime.hours.toString().padStart(2, "0");
-      const minutes = newTime.minutes.toString().padStart(2, "0");
-      const seconds = newTime.seconds.toString().padStart(2, "0");
-
-      const newTimeStringFormated = {
-        hours,
-        minutes,
-        seconds,
-      };
-
-      setCurrentTime(newTime);
+      const newTimeString = convertCurrentTimeIntoString(newTime);
+      setCurrentTime(newTimeString);
       setCurrentTimeString(
-        `${newTimeStringFormated.hours}:${newTimeStringFormated.minutes}:${newTimeStringFormated.seconds}`
+        newTimeString
       );
     }, 1000);
     return () => clearInterval(timer);
