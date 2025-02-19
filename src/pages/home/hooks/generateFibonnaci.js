@@ -1,15 +1,13 @@
 export const generateFibonnaci = (currentTime) => {
     const { hours, seconds, minutes } = currentTime;
-  
     const fibonacciList = [];
-  
     fibonacciList.push(seconds);
     fibonacciList.push(minutes);
 
     if(hours == 0){
-      return false;
+      return [seconds, minutes];
     } else if(hours == 1){
-      return seconds;
+      return [seconds, minutes];
     } else if(hours == 2){
       return [seconds, minutes];
     }

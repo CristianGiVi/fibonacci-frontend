@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { generateFibonnaci } from "../hooks/generateFibonnaci";
 
-export const FibonacciInputHour = () => {
+export const FibonacciInputHour = ({ setIsModalVisible, setFibonacciList, setHourSelected }) => {
 
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
@@ -44,11 +44,17 @@ export const FibonacciInputHour = () => {
       minutes: parseInt(minutes, 10), 
       seconds: parseInt(seconds, 10) 
     };
-    generateFibonnaci(inputTime);
+
+    const fibonacciSequence = generateFibonnaci(inputTime);
+
+    setFibonacciList(fibonacciSequence);
+    setIsModalVisible(true);
+    setHourSelected(`${hour}:${minutes}:${seconds}`);
 
     setHour("");
     setMinutes("");
     setSeconds("");
+    setIsError(false)
   };
   
 

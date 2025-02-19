@@ -1,5 +1,7 @@
+
 import { useState } from "react";
 
+import { FibonacciListModal } from "./components/FibonacciListModal";
 import { FibonacciInputHour } from "./components/FibonacciInputHour";
 import { FibonacciCurrentHour } from "./components/FibonacciCurrentHour";
 
@@ -7,7 +9,10 @@ import fibonacciPic from "@/assets/fibonacci_pic3.png";
 import secuenceFibonacci from "@/assets/secuenciaFibonacci.png";
 
 export function App() {
-  const [count, setCount] = useState(0);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [fibonacciList, setFibonacciList] = useState([]);
+  const [hourSelected, setHourSelected] = useState("");
 
   return (
     <div className="container-fluid">
@@ -61,17 +66,33 @@ export function App() {
 
       <div className="row m-4">
         <div className="col-4">
-          <FibonacciInputHour />
+          <FibonacciInputHour
+            setIsModalVisible={setIsModalVisible}
+            setFibonacciList={setFibonacciList}
+            setHourSelected={setHourSelected}
+          />
         </div>
 
         <div className="col-2"></div>
 
         <div className="col-4">
-          <FibonacciCurrentHour />
+          <FibonacciCurrentHour
+            setIsModalVisible={setIsModalVisible}
+            setFibonacciList={setFibonacciList}
+            setHourSelected={setHourSelected}
+          />
         </div>
 
         <div className="col-1"></div>
       </div>
+
+      <FibonacciListModal
+        isVisible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+        fibonacciList={fibonacciList}
+        hourSelected={hourSelected}
+      />
+
     </div>
   );
 }
