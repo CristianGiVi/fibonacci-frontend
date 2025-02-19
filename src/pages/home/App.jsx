@@ -23,10 +23,11 @@ export function App() {
       </div>
 
       <div className="row m-4">
-        <div className="col-4 p-4 rounded shadow bg-white">
+        <div className="col-4 p-4 rounded shadow bg-white"
+        style={{ marginTop: "50px", marginBottom: "50px" }}>
           <img
             src={fibonacciPic}
-            className="img-fluid w-100 h-100 "
+            className="w-100 h-100 "
             alt="fibonacci"
           />
         </div>
@@ -37,12 +38,18 @@ export function App() {
           <div className="row d-flex justify-content-center">
             <div className="col-12">
               <h5>
-                Esta pagina fue para generar y almacenar secuencias de Fibonacci
-                basadas en la hora del sistema o en un tiempo proporcionado por
-                el usuario. La secuencia se genera de la siguiente manera: La
-                semilla F0 son los segundos, la semilla F1 son los minutos y el
-                largo de la serie (n) es la hora.
+                Esta página fue para generar y almacenar secuencias de Fibonacci basadas en la 
+                hora del sistema o en un tiempo proporcionado por el usuario.
+                <br /><br />
+                La secuencia se genera de la siguiente manera:
+                <br /><br />
+                - La semilla F0 son los segundos.
+                <br /> 
+                - La semilla F1 son los minutos
+                <br />
+                - El largo de la serie (n) es la hora.
               </h5>
+
             </div>
           </div>
 
@@ -65,7 +72,10 @@ export function App() {
       </div>
 
       <div className="row m-4">
-        <div className="col-4">
+
+      <div className="col-1"></div>
+
+        <div className="col-4 mt-4 rounded shadow text-center bg-white">
           <FibonacciInputHour
             setIsModalVisible={setIsModalVisible}
             setFibonacciList={setFibonacciList}
@@ -75,7 +85,7 @@ export function App() {
 
         <div className="col-2"></div>
 
-        <div className="col-4">
+        <div className="col-4 mt-4 rounded shadow text-center bg-white">
           <FibonacciCurrentHour
             setIsModalVisible={setIsModalVisible}
             setFibonacciList={setFibonacciList}

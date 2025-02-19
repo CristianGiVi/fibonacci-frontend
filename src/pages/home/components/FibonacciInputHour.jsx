@@ -61,9 +61,9 @@ export const FibonacciInputHour = ({ setIsModalVisible, setFibonacciList, setHou
 
   return (
     <>
-      <div className="row">
+      <div className="row d-flex justify-content-center m-4">
         <h4>Ingrese una hora personalizada: </h4>
-        <div className="input-group">
+        <div className="input-group mt-4">
           <input
             type="number"
             placeholder="Hora"
@@ -97,16 +97,18 @@ export const FibonacciInputHour = ({ setIsModalVisible, setFibonacciList, setHou
             onChange={(e) => setSeconds(e.target.value)}
           />
         </div>
-      </div>
 
-      {isError && (
-        <div id="validationHourInput" className="text-danger mt-2">
+        {isError && (
+        <div id="validationHourInput" className="text-danger mt-1">
           Por favor, ingrese un tiempo válido
         </div>
       )}
+      </div>
 
-      <div className="row d-flex justify-content-center mt-3">
-        <button className="btn btn-primary w-auto"
+
+
+      <div className="row d-flex justify-content-center mx-1 mb-3">
+        <button className="btn btn-primary"
           onClick={() => handleSubmit(hour, minutes, seconds)}
         >
           Generar

@@ -41,21 +41,21 @@ export const FibonacciCurrentHour = ({ setIsModalVisible, setFibonacciList, setH
     const fibonacciSequence = generateFibonnaci(currentTime);
     setFibonacciList(fibonacciSequence);
     setIsModalVisible(true);
-    setHourSelected(currentTimeString);
+    setHourSelected(currentTimeString)
   }
 
   return (
     <>
-      <div className="row">
+      <div className="row d-flex justify-content-center m-4">
         <h4>Hora actual:</h4>
         <div>
-          <h3> {currentTimeString} </h3>
+          <h1> {currentTimeString} </h1>
         </div>
       </div>
 
-      <div className="row d-flex justify-content-center mt-3">
+      <div className="row d-flex justify-content-center mx-1 mb-3">
         <button
-          className="btn btn-primary w-auto"
+          className="btn btn-primary"
           onClick={() => handleSubmit(currentTime)}
         >
           Generar
